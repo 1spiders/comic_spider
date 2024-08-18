@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+*.sh
+list/
+__pycache__/
+log/
+logs/
+comics/
