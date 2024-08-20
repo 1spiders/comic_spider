@@ -24,7 +24,7 @@ HEADERS = {
     'referer': 'https://m.godamh.com/',
 }
 DEFAULT_SOCKS = 'socks5://127.0.0.1:1084'
-DATA_PATH = './comics/'
+DATA_PATH = '/docs/ebooks/comics/'
 BREAK_PREFIX = './list/godamh.break.'
 MAX_WORKERS = 20
 
@@ -34,7 +34,18 @@ proxies = {
     'https': DEFAULT_SOCKS,
 }
 start_urls = [
-    'https://hipmh.com/manga/doupocangqiongzhidazhuzai-dazhouhuyu',
+    # 'https://hipmh.com/manga/doupocangqiongzhidazhuzai-dazhouhuyu',
+    'https://hipmh.com/manga/doupocangqiong-zhiyinmankerenxiang',
+    'https://hipmh.com/manga/guimiezhiren-wusanghushiqing',
+    'https://hipmh.com/manga/wudonggankun-shenman',
+    'https://hipmh.com/manga/yaoshenji-taxuedongman',
+    'https://hipmh.com/manga/yuanzun-weitianchuanmei',
+    # 'https://hipmh.com/manga/douluodalu2jueshitangmen-tangjiasanshao',
+    'https://hipmh.com/manga/douluodaluiijueshitangmen-shenmanjun',
+    'https://hipmh.com/manga/douluodalu3longwangchuanshuo-shenman'
+    'https://hipmh.com/manga/douluodalu4zhongjidouluo-shenman',
+    'https://hipmh.com/manga/wuliandianfeng-pikapi',
+    'https://hipmh.com/manga/doupocangqiong-zhiyinmankerenxiang',
 ]
 
 def retry_on_exception(retries=10, delay=3):
@@ -47,6 +58,7 @@ def retry_on_exception(retries=10, delay=3):
                 except RequestException as e:
                     print(f"Request failed: {e}. Retrying ({attempt + 1}/{retries})...")
                     time.sleep(delay)
+            print(f"尝试失败! func:{func},args={args},kw={kwargs}")
             return None
         return wrapper
     return decorator
